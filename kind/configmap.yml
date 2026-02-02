@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gemini-config
+  namespace: gemini-namespace
+data:
+  GOOGLE_ID: 129141503091-aqt5en36ppv5pkmqk9jmme7eg52ipu5r.apps.googleusercontent.com
+  MONGODB_URI: mongodb://mongodb-service:27017/gemini
+  NEXTAUTH_URL: https://3.111.218.42.nip.io
+  MONGO_INITDB_ROOT_USERNAME: admin
