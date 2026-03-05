@@ -4,17 +4,16 @@ metadata:
   name: gemini-ingress
   namespace: gemini-namespace
   annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/proxy-body-size: "50m"
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"  # Force HTTPS
-    cert-manager.io/cluster-issuer: letsencrypt-prod  # Use Let's Encrypt
 spec:
+  ingressClassName: nginx
   tls:
   - hosts:
     - 13.234.225.76.nip.io
     secretName: gemini-tls-secret
-  ingressClassName: nginx
   rules:
-  - host: "13.234.225.76.nip.io"
+  - host: 13.234.225.76.nip.io
     http:
       paths:
       - path: /
@@ -24,4 +23,3 @@ spec:
             name: gemini-service
             port:
               number: 3000
-
